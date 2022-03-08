@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Acceso de usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">Correo:</ion-label>
+          <ion-input type="text" [(ngModel)]="txtEmail"></ion-input>
+        </ion-item>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">Contraseña:</ion-label>
+          <ion-input type="password" [(ngModel)]="passPassword"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <div style="padding: 15px">
+    <ion-button color="primary" expand="block" (click)="logIn();"
+      >Iniciar sesión</ion-button
+    >
+    <ion-button color="primary" expand="block" routerLink="/user/register"
+      >Nuevo usuario</ion-button
+    >
+  </div>
+</ion-content>

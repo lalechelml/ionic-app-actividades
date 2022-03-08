@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title
+      ><ion-button routerLink="/general/index">Atrás</ion-button>Lista de
+      Actividades</ion-title
+    >
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of data; let i = index">
+      <ion-card style="width: 100%">
+        <ion-item>
+          <ion-label>{{ item.name }} - {{item.state}}</ion-label>
+          <ion-button
+            (click)="updateUserModal(
+						item.idSchedule,
+						item.name,
+						item.startTime,
+						item.endTime,
+						item.idUser
+						)"
+            >Editar</ion-button
+          >
+        </ion-item>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="crescent"
+      loadingText="Cargando"
+    >
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

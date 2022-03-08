@@ -1,0 +1,49 @@
+<ion-content [fullscreen]="true">
+  <div class="ion-padding">
+    <form [formGroup]="formSchedule">
+      <h3 class="ion-text-center">Registrar actividad</h3>
+      <ion-item class="ion-no-padding">
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+      <div class="divErrorMessage">
+        <ion-label *ngIf="nameFv.hasError('required') && nameFv.dirty"
+          >Este campo es requerido</ion-label
+        >
+      </div>
+      <div>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">Fecha y Hora de Inicio</ion-label>
+          <ion-datetime
+            formControlName="startTimeFv"
+            displayFormat="D MMM YYYY H:mm"
+          ></ion-datetime>
+        </ion-item>
+        <div class="divErrorMessage">
+          <ion-label *ngIf="startTime.hasError('required') && startTime.dirty"
+            >Este campo es requerido</ion-label
+          >
+        </div>
+      </div>
+
+      <div>
+        <ion-item class="ion-no-padding">
+          <ion-label position="stacked">Fecha y Hora de termino</ion-label>
+          <ion-datetime
+            displayFormat="D MMM YYYY H:mm"
+            formControlName="endTimeFv"
+          ></ion-datetime>
+        </ion-item>
+        <div class="divErrorMessage">
+          <ion-label *ngIf="endTime.hasError('required') && endTime.dirty"
+            >Este campo es requerido</ion-label
+          >
+        </div>
+      </div>
+
+      <ion-button color="dark" expand="block" (click)="register()"
+        >Actualizar</ion-button
+      >
+    </form>
+  </div>
+</ion-content>
